@@ -1,6 +1,7 @@
 package com.flash.rahul.flash;
 
 
+import android.hardware.Camera;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Context;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton mTorchOnOffButton;
     private Boolean isTorchOn;
     private MediaPlayer mp;
+    Camera cam;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -81,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 mCameraManager.setTorchMode(mCameraId, true);
                 playOnSound();
-                mTorchOnOffButton.setImageResource(R.drawable.switchon);
+                mTorchOnOffButton.setImageResource(R.drawable.switchoo);
             }
         } catch (Exception e) {
             e.printStackTrace();
