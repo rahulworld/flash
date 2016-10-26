@@ -80,8 +80,8 @@ public class MainActivity extends AppCompatActivity {
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 mCameraManager.setTorchMode(mCameraId, true);
-                playOnOffSound();
-                mTorchOnOffButton.setImageResource(R.drawable.button_on);
+                playOnSound();
+                mTorchOnOffButton.setImageResource(R.drawable.switchon);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 mCameraManager.setTorchMode(mCameraId, false);
                 playOnOffSound();
-                mTorchOnOffButton.setImageResource(R.drawable.button_on);
+                mTorchOnOffButton.setImageResource(R.drawable.switchff);
 
             }
 
@@ -107,6 +107,19 @@ public class MainActivity extends AppCompatActivity {
     private void playOnOffSound(){
 
         mp = MediaPlayer.create(MainActivity.this, R.raw.light_switch_off);
+        mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                // TODO Auto-generated method stub
+                mp.release();
+            }
+        });
+        mp.start();
+    }
+    private void playOnSound(){
+
+        mp = MediaPlayer.create(MainActivity.this, R.raw.light_switch_on);
         mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 
             @Override

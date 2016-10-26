@@ -13,14 +13,16 @@
 
     <ImageButton
         android:id="@+id/button_on_off"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dip"
-        android:src="@drawable/button_on"
+        android:src="@drawable/switchff"
+        android:adjustViewBounds="true"
         android:background="@null"
         android:contentDescription="@null"
         android:layout_gravity="center"
+        android:scaleType="fitCenter"
         />
 
 </LinearLayout>
